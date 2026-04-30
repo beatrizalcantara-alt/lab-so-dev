@@ -7,6 +7,8 @@
 # Cole abaixo a linha relevante da saída de:
 # strace echo "ola" 2>&1 | grep write
 
+write(1, "ola\n", 4ola
+
 Saída filtrada:
 
 # Anote:
@@ -14,10 +16,10 @@ Saída filtrada:
 #   O que está sendo escrito:
 #   Valor de retorno:
 
-fd:
-conteúdo:
-retorno:
 
+fd: 1
+conteúdo: ola\n
+retorno:4
 
 # PARTE B — Programa C com write() direto
 
@@ -46,3 +48,4 @@ Resposta 1:
 #    operacional moderno herda esse papel? 
 
 Resposta 2:
+
