@@ -55,5 +55,6 @@ O modo usuário(que tem acesso restrito) pede acesso ao modo kernell(que tem ace
 #    operacional moderno herda esse papel? 
 
 
-Resposta 2:
 
+Resposta 2:
+O driver mais o DMA, que transfere dados sem interromper a cpu
