@@ -25,12 +25,16 @@ retorno:4
 
 # Cole aqui o código de syscall_direto.c que você escreveu:
 
-[código-fonte]
-
+#include <unistd.h>
+int main() {
+const char msg[] = "Modo usuario -> kernel via write()\n";
+write(1, msg, sizeof(msg) - 1);
+return 0;
+}
 
 # Cole aqui a linha write(...) da saída de strace -o strace.txt ./syscall_direto:
 
-[saída do strace]
+strace.txt:write(1, "Modo usuario -> kernel via write"..., 35) = 35
 
 
 # PARTE C — Questões de síntese
@@ -40,12 +44,16 @@ retorno:4
 #    de usuário consegue fazer I/O sem executar instruções privilegiadas diretamente.
 
 Resposta 1:
-
+Um programa consegue fazer entrada e saida sem executar instruções privilegiadas usando o syscall onde ele pede acesso ao sistema operacional, 
+onde ele basicamente só pegas as informações do sistema, mas nao pode muda-las. É como sw ele só lesse e transmitisse/enviasse a informção que nós pedimos
+com os comando como write, cat...
+O modo usuário(que tem acesso restrito) pede acesso ao modo kernell(que tem acesso total).
 
 # 2. Na apresentação sobre a genealogia do software, vimos que os programas de canal
 #    eram responsáveis por intermediar a transferência de dados entre a memória e os
 #    dispositivos, sem intervenção direta da CPU principal. Qual elemento do sistema 
 #    operacional moderno herda esse papel? 
+
 
 Resposta 2:
 
